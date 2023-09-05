@@ -52,13 +52,15 @@ int main() {
                 }
                 break;
             case MoedaInserida:
-                if (moedaInserida) {
-                    if (strcmp(input, "Coffee") == 0 || strcmp(input, "Tea") == 0) {
-                        currentState = strcmp(input, "Coffee") == 0 ? Coffee : Tea;
-                    }
+                if (moedaInserida && (strcmp(input, "Coffee") == 0 || strcmp(input, "Tea") == 0)) {
+                    currentState = strcmp(input, "Coffee") == 0 ? Coffee : Tea;
                 }
                 break;
             case Coffee:
+                if (strcmp(input, "Glass") == 0) {
+                    currentState = Glass;
+                }
+                break;
             case Tea:
                 if (strcmp(input, "Glass") == 0) {
                     currentState = Glass;
